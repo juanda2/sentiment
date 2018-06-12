@@ -14,7 +14,7 @@ from ciscosparkapi import CiscoSparkAPI
 WEBEX_TOKEN = ''
                # Enter your Webex Token (get it at http://developer.webex.com)
 
-API_KEY = ''		
+API_KEY = '2e5cc4cf-e029-4f9f-bd80-fa3f174190e6'
            # Enter your analyzer API Key as per the guide below:
 
 #Pods 1-4 : '2e5cc4cf-e029-4f9f-bd80-fa3f174190e6'
@@ -51,12 +51,12 @@ def main():
     print("DISCLAIMER: Use at your own risk and on a test account!")
     print("Only execute script if you are aware of the following:")
     print("Message information WILL leave your WebEx Teams account and be shared outside your organization.\n")
-    while c!="1": c=input("\nType '1' to accept and start with Step 1 (List your Spaces)...")
+    input("\nPress any key to accept and start with Step 1 (List your Spaces)...")
 
     # Start Gathering Spaces
     print("\nStep 1: Gathering your Spaces. Sent an API request using your WebEx Teams Token and "
           "the response looks like this (first record): \n "+str(rooms[0]))
-    while c!="2": c=input("\nType '2' to continue to Step 2 (Space selection)...")
+    input("\nPress any key to continue to Step 2 (Space selection)...")
 
     # This block goes space for space listing them and assigning a numeric value to the space, so user can easily choose
     print("\nThese are your Rooms: \n\n")
@@ -67,7 +67,7 @@ def main():
     roomToAnalyzeTitle=rooms[int(roomToAnalyze)].title
 
     print("\nYour chosen room is: "+str(roomToAnalyzeTitle))
-    while c!="3": c=input("\nType '3' to continue to Step 3 (Message history gathering for space "+roomToAnalyzeTitle+")...")
+    input("\nPress any key to continue to Step 3 (Message history gathering for space "+roomToAnalyzeTitle+")...")
 
     # Once space is identified, have the CiscosparkAPI fetch all messages for us, until a limit is reached!
     # then for every message, either start a list with the email and the first message, or append a message if
@@ -84,7 +84,7 @@ def main():
 
     print("\nSent API request to gather the space's messages. Here's a sample message: \n\n"+str(message))
 
-    while c!="4": c=input("\nType '4' to continue to step 4 (Space History Analysis)...")
+    input("\nPress any key to continue to step 4 (Space History Analysis)...")
 
     # At this point we have a structure containing all of the emails and all of the messages for that email in a list.
     # next step is to create a fake 'file' which makes the upload to the API easier:
@@ -98,7 +98,7 @@ def main():
 
     print("\nSent Message History from all space members to Sentiment Analysis API. \nHere is a sample response for "+email+": \n\n")
     pprint.pprint(emailsAndScores[email])
-    while c!="5": c=input("\n\nType '5' to continue to step 5 (Sentiment Ranking)...")
+    input("\nPress any key to continue to step 5 (Sentiment Ranking)...")
 
     print("\nThese are the Webex Team Members of \""+roomToAnalyzeTitle+"\" and their respective Sentiment: \n")
 
