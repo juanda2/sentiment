@@ -25,6 +25,7 @@ SENTIMENT_API_URL = 'http://api.havenondemand.com/1/api/sync/analyzesentiment/v2
 
 def main():
 
+    print("Connecting with your WebEx Teams token to the API...")
     api = CiscoSparkAPI(access_token=WEBEX_TOKEN)
 
     # The following Variables deal more with the temporary storing of information.
@@ -36,7 +37,7 @@ def main():
     # the structures for analysis take the user's email as the primary key, so we have an emailsAndMessages structure,
     # and equally important a relationship between emails and scores and ranks
 
-    limit=50000               #Limits the number of iterations (How many messages back do you want to analyze?)
+    limit=500               #Limits the number of iterations (How many messages back do you want to analyze?)
     i=1                     #Iterator that counts through the loops and exits if the limit is hit
     c=''                    #Character pressed by the user to continue (Step 1,2,3...)
     emailsAndMessages={}    #Structure that holds emails and all the messages said by that email
