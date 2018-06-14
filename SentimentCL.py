@@ -36,7 +36,7 @@ def main():
     # the structures for analysis take the user's email as the primary key, so we have an emailsAndMessages structure,
     # and equally important a relationship between emails and scores and ranks
 
-    limit=500               #Limits the number of iterations (How many messages back do you want to analyze?)
+    limit=50000               #Limits the number of iterations (How many messages back do you want to analyze?)
     i=1                     #Iterator that counts through the loops and exits if the limit is hit
     c=''                    #Character pressed by the user to continue (Step 1,2,3...)
     emailsAndMessages={}    #Structure that holds emails and all the messages said by that email
